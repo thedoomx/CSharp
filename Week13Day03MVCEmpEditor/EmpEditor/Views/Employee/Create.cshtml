@@ -1,0 +1,40 @@
+﻿@model EmpEditor.Models.EmpModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>Employee</legend>
+
+                <div>
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div>
+                    @Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+
+                <p>
+                    <input type="submit" value="Create" />
+                </p>
+            </fieldset>
+        }
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </body>
+</html>

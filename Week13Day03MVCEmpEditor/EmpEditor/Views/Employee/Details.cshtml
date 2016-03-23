@@ -1,0 +1,28 @@
+﻿@model EmpEditor.Models.EmpModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        @Html.DisplayNameFor(modelItem => Model.Name)
+    </div>
+    <div>
+        @Html.DisplayFor(modelItem => Model.Name)
+        <button onclick="document.getElementById('demo').innerHTML = @Html.DisplayFor(Model => Model.Id)" >Get ID</button>
+        <label id="demo"></label>
+        
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

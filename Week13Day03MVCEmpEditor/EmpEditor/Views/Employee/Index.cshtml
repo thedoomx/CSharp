@@ -1,0 +1,131 @@
+﻿@*@model EmpEditor.Models.EmployeeViewModel*@
+@model PagedList.IPagedList<EmpEditor.Models.EmpModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EmployeesView</title>
+    <script src="~/Scripts/jquery-2.2.0.js"></script>
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+    
+</head>
+<body>
+    <div>
+        @Html.ActionLink("Create new employee", "Create", new { @class = "createNew" })
+    </div>
+    <div>
+        <fieldset>
+            <legend>Get details for employee</legend>
+            <p>
+                @Html.DropDownList("Employees",
+                Model.Select(e => new SelectListItem() { Text = e.Name, Value = e.Id.ToString() }),
+                "Select employee",
+                new { onchange = "window.location.href='/Employee/Details/' + this.value;" })
+            </p>
+        </fieldset>
+
+        <table id="crazyTable">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().Name)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        @Html.ActionLink("Update", "Update", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+
+        <div>
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            of @Model.PageCount
+
+            @if (Model.HasPreviousPage)
+            {
+                @Html.ActionLink("<<", "Index", new { page = 1 })
+                @Html.Raw(" ");
+                @Html.ActionLink("< Prev", "Index", new { page = Model.PageNumber - 1 })
+            }
+            else
+            {
+                @:<<
+                @Html.Raw(" ");
+                @:< Prev
+            }
+
+            @if (Model.HasNextPage)
+            {
+                @Html.ActionLink("Next >", "Index", new { page = Model.PageNumber + 1 })
+                @Html.Raw(" ");
+                @Html.ActionLink(">>", "Index", new { page = Model.PageCount })
+            }
+            else
+            {
+                @:Next >
+                @Html.Raw(" ");
+                @:>>
+            }
+
+
+        </div>
+        
+        
+        <div>
+            <button id="crazyButton">Go red!</button>
+
+            <script type="text/javascript">
+
+                $(document).ready(function () {
+                    $('#crazyButton').click(function () {
+                        $('#crazyTable ').css("color", "red");
+                    });
+                });
+
+    </script>
+        </div>
+
+        <a href='javascript:getView();'>Get Partial View</a>
+
+        <script type="text/javascript">
+
+            function getView() {
+                $('#divEmployees').load("@Url.Action("AllEmployees", "Employee")");
+            }
+        </script>
+
+        <a href='javascript:getBoss();'>Get boss</a>
+
+        <script type="text/javascript">
+            function getBoss() {
+                $('#divEmployees').load("@Url.Action("JustBoss", "Employee")");
+            }
+        </script>
+
+        <a href='javascript:hide();'>Hide</a>
+
+        <script type="text/javascript">
+            function hide() {
+                $('#divEmployees').load("@Url.Action("Hide", "Employee")");
+            }
+        </script>
+
+        <div id="divEmployees"></div>
+
+    </div>
+</body>
+</html>

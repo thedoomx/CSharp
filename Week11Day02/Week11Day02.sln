@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormDatabinding", "TempForm\FormDatabinding.csproj", "{3DED7DC0-6BD9-436F-9AE2-0422CA1069BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDatabinding", "WPFDatabinding\WPFDatabinding.csproj", "{4CA3ACCE-3E35-4740-8684-AFD0CE6B91F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeEditorWPF", "EmployeeEditorWPF\EmployeeEditorWPF.csproj", "{3745EEE8-61F7-4AEE-A852-81720882257E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DED7DC0-6BD9-436F-9AE2-0422CA1069BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DED7DC0-6BD9-436F-9AE2-0422CA1069BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DED7DC0-6BD9-436F-9AE2-0422CA1069BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DED7DC0-6BD9-436F-9AE2-0422CA1069BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CA3ACCE-3E35-4740-8684-AFD0CE6B91F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CA3ACCE-3E35-4740-8684-AFD0CE6B91F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CA3ACCE-3E35-4740-8684-AFD0CE6B91F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CA3ACCE-3E35-4740-8684-AFD0CE6B91F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3745EEE8-61F7-4AEE-A852-81720882257E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3745EEE8-61F7-4AEE-A852-81720882257E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3745EEE8-61F7-4AEE-A852-81720882257E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3745EEE8-61F7-4AEE-A852-81720882257E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

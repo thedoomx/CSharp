@@ -1,0 +1,42 @@
+﻿@model EmpEditor.Models.EmpModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+
+    <script>
+        window.alert("Be careful with deleting!");
+    </script>
+</head>
+<body>
+    <div> 
+        <h3>Are you sure you want to delete this?</h3>
+        <fieldset>
+            <legend>Employee</legend>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.Name)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.Name)
+            </div>
+        </fieldset>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <p>
+                <input type="submit" value="Delete" onclick="return confirm('Do you wish to continue?')"/> |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        }
+    </div>
+</body>
+</html>

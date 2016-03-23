@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{50E458B5-2D77-44CA-8D25-7C2FA64BF2CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextAutoCorrect", "TextAutoCorrect\TextAutoCorrect.csproj", "{53CF21C0-D959-44A1-BA18-0E26733B5DA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Browser", "Browser\Browser.csproj", "{2CAB9AB2-BFFA-47B8-8A5A-7E3218C6D8E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50E458B5-2D77-44CA-8D25-7C2FA64BF2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50E458B5-2D77-44CA-8D25-7C2FA64BF2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50E458B5-2D77-44CA-8D25-7C2FA64BF2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50E458B5-2D77-44CA-8D25-7C2FA64BF2CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53CF21C0-D959-44A1-BA18-0E26733B5DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53CF21C0-D959-44A1-BA18-0E26733B5DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53CF21C0-D959-44A1-BA18-0E26733B5DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53CF21C0-D959-44A1-BA18-0E26733B5DA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CAB9AB2-BFFA-47B8-8A5A-7E3218C6D8E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CAB9AB2-BFFA-47B8-8A5A-7E3218C6D8E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CAB9AB2-BFFA-47B8-8A5A-7E3218C6D8E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CAB9AB2-BFFA-47B8-8A5A-7E3218C6D8E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
