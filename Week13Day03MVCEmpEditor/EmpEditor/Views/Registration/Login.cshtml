@@ -1,0 +1,36 @@
+﻿@model EmpEditor.Models.UserModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    @using(Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div>
+            @Html.LabelFor(model => model.Email)
+            <div>
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+
+            <div>
+                @Html.LabelFor(model => model.Password)
+                <div>
+                    @Html.EditorFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+            </div>
+
+
+            <p>
+                <input type="submit" value="Login" />
+            </p>
+    }
+</body>
+</html>

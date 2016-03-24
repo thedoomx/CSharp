@@ -9,7 +9,7 @@ namespace EmpEditor.Models
     public class EmpModel
     {
         [Required(ErrorMessage ="Name is required!")]
-        [MaxLength(5)]
+        [MaxLength(10)]
         public string Name { get; set; }
         public int Id { get; set; }
     }

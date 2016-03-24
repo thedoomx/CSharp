@@ -9,6 +9,13 @@ namespace EmpEditor.Controllers
 {
     public class RegistrationController : Controller
     {
+        private readonly IUserRepository _repository = new UserRepository();
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Signup()
         {
@@ -17,16 +24,17 @@ namespace EmpEditor.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Signup(User user)
+        public ActionResult Signup(UserModel user)
         {
             if (ModelState.IsValid)
             {
-                Week08Day03Entities ctx = new Week08Day03Entities();
-                ctx.Users.Add(user);
-
-                return View("Information", user);
+                if(_repository.AddUser(user))
+                {
+                    return View("Information", user);
+                }
             }
 
+            ViewBag.Title = "Email is already in use!";
             return View(user);
         }
 
@@ -35,5 +43,34 @@ namespace EmpEditor.Controllers
         {
             return View(user);
         }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(UserModel user)
+        {
+            if (ModelState.IsValid)
+            {
+
+                if(_repository.IsValid(user.Email, user.Password))
+                {
+                    return RedirectToAction("Index", "Employee");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Login data is incorrect.");
+                }
+
+            }
+
+            return View(user);
+        }
+
+        
     }
 }

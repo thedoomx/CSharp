@@ -1,7 +1,8 @@
-﻿@model EmpEditor.Models.User
+﻿@model EmpEditor.Models.UserModel
 
 @{
     Layout = null;
+    @ViewBag.Title
 }
 
 <!DOCTYPE html>
@@ -20,13 +21,7 @@
         <div>
             <h4>User</h4>
             <hr />
-            <div>
-                @Html.LabelFor(model => model.Username)
-                <div>
-                    @Html.EditorFor(model => model.Username)
-                    @Html.ValidationMessageFor(model => model.Username)
-                </div>
-            </div>
+            
 
             <div>
                 @Html.LabelFor(model => model.Email)
@@ -44,30 +39,11 @@
                 </div>
             </div>
 
-            <div>
-                @Html.LabelFor(model => model.ConfirmPassowrd)
-                <div>
-                    @Html.EditorFor(model => model.ConfirmPassowrd)
-                    @Html.ValidationMessageFor(model => model.ConfirmPassowrd)
-                </div>
-            </div>
-
-            <div>
-                @Html.LabelFor(model => model.Sex)
-                <div>
-                    @Html.EditorFor(model => model.Sex)
-                    @Html.ValidationMessageFor(model => model.Sex)
-                </div>
-            </div>
-
             <p>
-                <input type="submit" value="Create"/>
+                <input type="submit" value="Register"/>
             </p>
         </div>
     }
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
 </body>
 </html>
