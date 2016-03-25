@@ -17,6 +17,7 @@
 </head>
 <body>
     <div>
+        @Html.ActionLink("Log out", "Logout", "Registration")
         @Html.ActionLink("Create new employee", "Create", new { @class = "createNew" })
     </div>
     <div>
@@ -96,10 +97,10 @@
                     });
                 });
 
-    </script>
+            </script>
         </div>
 
-        <a href='javascript:getView();'>Get all Employees</a>
+        <a href='javascript:getView();'>Get all employees</a>
 
         <script type="text/javascript">
 

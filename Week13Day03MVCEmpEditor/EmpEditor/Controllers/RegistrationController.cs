@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EmpEditor.Models;
+using System.Web.Security;
 
 namespace EmpEditor.Controllers
 {
@@ -59,6 +60,7 @@ namespace EmpEditor.Controllers
 
                 if(_repository.IsValid(user.Email, user.Password))
                 {
+                    FormsAuthentication.SetAuthCookie(user.Email, false);
                     return RedirectToAction("Index", "Employee");
                 }
                 else
@@ -71,6 +73,10 @@ namespace EmpEditor.Controllers
             return View(user);
         }
 
-        
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Registration");
+        }
     }
 }

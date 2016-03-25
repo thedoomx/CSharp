@@ -8,10 +8,11 @@ using PagedList;
 
 namespace EmpEditor.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         private readonly IEmployeeRepository _repository = new EmployeeRepository();
-
+        
         public ActionResult Index(int? page)
         {
             EmployeeViewModel vm = new EmployeeViewModel()
