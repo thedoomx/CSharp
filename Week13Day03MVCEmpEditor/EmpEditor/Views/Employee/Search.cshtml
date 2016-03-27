@@ -1,0 +1,81 @@
+﻿@model IEnumerable<EmpEditor.Models.Employee>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+    <script src="~/Scripts/jquery-2.2.0.js"></script>
+    <script src="~/Scripts/jquery-2.2.0.min.js"></script>
+</head>
+<body>
+    <div>
+        Enter employee name:
+        <input type="text" id="searchFilter" />
+
+        <table id="tblData">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $("#searchFilter").keyup(function () {
+
+                var data = $(this).val();
+                var url = "/Employee/Search/";
+                var Emp = {};
+                Emp.Name = $("#searchFilter").val();
+
+                if ($("#searchFilter").val().length > 0 || $("#searchFilter").val() != "") {
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: Emp,
+                        dataType: "html",
+                        success: function (evt) {
+                            $('#tblData').html(evt);
+                        },
+                    });
+                }
+                else {
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: Emp,
+                        dataType: "html",
+                        success: function (evt) {
+                            $('#tblData').html(evt);
+                        },
+                    });
+                }
+            });
+        });
+        </script>
+    </div>
+</body>
+</html>

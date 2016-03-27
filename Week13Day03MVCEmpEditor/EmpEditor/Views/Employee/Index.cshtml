@@ -1,5 +1,4 @@
-﻿@*@model EmpEditor.Models.EmployeeViewModel*@
-@model PagedList.IPagedList<EmpEditor.Models.EmpModel>
+﻿@model PagedList.IPagedList<EmpEditor.Models.EmpModel>
 
 @{
     Layout = null;
@@ -19,6 +18,7 @@
     <div>
         @Html.ActionLink("Log out", "Logout", "Registration")
         @Html.ActionLink("Create new employee", "Create", new { @class = "createNew" })
+        @Html.ActionLink("Go to AJAX search", "Search")
     </div>
     <div>
         <fieldset>
@@ -127,6 +127,7 @@
 
         <div id="divEmployees"></div>
 
+        
     </div>
 </body>
 </html>

@@ -136,5 +136,33 @@ namespace EmpEditor.Controllers
 
             return PartialView("_boss", model);
         }
+
+        [HttpGet]
+        public ActionResult Search()
+        {
+            using(var ctx = new Week08Day03Entities())
+            {
+                var data = ctx.Employees.ToList();
+                return View(data);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Search(Employee emp)
+        {
+            using (var ctx = new Week08Day03Entities())
+            {
+                if (emp.Name == null)
+                {
+                    return PartialView("_searchEmployees", ctx.Employees.ToList());
+                }
+                else
+                {
+                    var data = ctx.Employees.Where(e => e.Name.Contains(emp.Name)).ToList();
+
+                    return PartialView("_searchEmployees", data);
+                }
+            }
+        }
     }
 }
