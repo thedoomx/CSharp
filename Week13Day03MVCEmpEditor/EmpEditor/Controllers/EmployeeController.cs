@@ -152,5 +152,33 @@ namespace EmpEditor.Controllers
                                     .Contains(emp.Name.ToLower())));
             }
         }
+
+        [HttpGet]
+        public ActionResult AutoComplete()
+        {
+            return View(_repository.GetEmployees());
+        }
+
+        [HttpPost]
+        public ActionResult AutoComplete(string searchTerm)
+        {
+            if(String.IsNullOrEmpty(searchTerm))
+            {
+                return View(_repository.GetEmployees());
+            }
+            else
+            {
+                return View(_repository.GetEmployees().Where(e => e.Name.ToLower().Contains(searchTerm.ToLower())));
+            }
+        }
+
+        public JsonResult GetEmployees(string term)
+        {
+            List<string> names = _repository.GetEmployees()
+                .Where(e => e.Name.ToLower().Contains(term.ToLower())).Select(n => n.Name)
+                .ToList();
+
+            return Json(names, JsonRequestBehavior.AllowGet);
+        }
     }
 }
