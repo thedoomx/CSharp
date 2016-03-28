@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Typeahead</title>
+    <title>Auto complete</title>
     <link href="~/Content/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
@@ -18,7 +18,48 @@
         $(function () {
             $("#txtSearch").autocomplete({
                 source: '@Url.Action("GetEmployees", "Employee")',
-                minLength: 2
+                minLength: 2,
+                //Set the value of the input manually, then trigger the change event manually, and return false
+                //so that it doesn't bother setting the input twice.
+                select: function (event, ui) {
+                    this.value = ui.item.value;
+                    $(this).trigger('change');
+                    return false;
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtSearch").on("change keyup", function () {
+
+                var data = $(this).val();
+                var url = "/Employee/Search/";
+                var Emp = {};
+                Emp.Name = $("#txtSearch").val();
+
+                if ($("#txtSearch").val().length > 0 || $("#txtSearch").val() != "") {
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: Emp,
+                        dataType: "html",
+                        success: function (evt) {
+                            $('#tblData').html(evt);
+                        },
+                    });
+                }
+                else {
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: Emp,
+                        dataType: "html",
+                        success: function (evt) {
+                            $('#tblData').html(evt);
+                        },
+                    });
+                }
             });
         });
     </script>
@@ -31,7 +72,7 @@
             @Html.TextBox("searchTerm", null, new { id = "txtSearch" })
             <input type="submit" value="Search" />
         }
-        <table border="1">
+        <table border="1" id="tblData">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
