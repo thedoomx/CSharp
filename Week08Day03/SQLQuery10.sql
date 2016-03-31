@@ -1,0 +1,13 @@
+USE Week08Day03
+
+IF EXISTS (SELECT * FROM Employees WHERE id = 27)
+BEGIN
+	UPDATE Employees
+	SET Name = 'First'
+	WHERE ID = 27
+END
+ELSE
+BEGIN
+	INSERT INTO Employees
+	VALUES ('Second', NULL, '1900-01-01', 2, 2)
+END
