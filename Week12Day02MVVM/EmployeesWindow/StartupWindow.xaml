@@ -1,0 +1,13 @@
+﻿<Window x:Class="EmployeesWindow.StartupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeesWindow"
+        mc:Ignorable="d"
+        Title="StartupWindow" Height="300" Width="300">
+    <Canvas>
+        <Button x:Name="buttonEmployees" Content="Start Main Window" Canvas.Left="78" Canvas.Top="79" Width="153" Click="buttonEmployees_Click"></Button>
+        <Button x:Name="buttonOrders" Content="Start Orders Window" Canvas.Left="78" Canvas.Top="117" Width="153" Click="buttonOrders_Click"></Button>
+    </Canvas>
+</Window>
