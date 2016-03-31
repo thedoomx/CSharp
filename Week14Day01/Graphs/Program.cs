@@ -14,7 +14,11 @@ namespace Graphs
             DirectoryInfo dir = new DirectoryInfo("D:\\Graphs\\");
 
 
+            Console.WriteLine("DFS");
             DFS(dir);
+            Console.WriteLine();
+            Console.WriteLine("BFS");
+            BFS(dir);
         }
 
         private static void DFS(DirectoryInfo dir)
