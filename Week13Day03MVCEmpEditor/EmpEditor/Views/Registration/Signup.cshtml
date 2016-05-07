@@ -1,8 +1,8 @@
 ﻿@model EmpEditor.Models.UserModel
 
 @{
-    Layout = null;
-    @ViewBag.Title
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @ViewBag.Title;
 }
 
 <!DOCTYPE html>
@@ -19,9 +19,8 @@
         @Html.ValidationSummary(true)       
 
         <div>
-            <h4>User</h4>
-            <hr />
-            
+            <h4>Create new user</h4>
+            <hr />     
 
             <div>
                 @Html.LabelFor(model => model.Email)
@@ -36,6 +35,14 @@
                 <div>
                     @Html.EditorFor(model => model.Password)
                     @Html.ValidationMessageFor(model => model.Password)
+                </div>
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.RepeatPassword)
+                <div>
+                    @Html.EditorFor(model => model.RepeatPassword)
+                    @Html.ValidationMessageFor(model => model.RepeatPassword)
                 </div>
             </div>
 

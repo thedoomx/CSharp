@@ -1,1 +1,25 @@
-﻿
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <div class="container body-content">
+        @if (Request.IsAuthenticated)
+        {
+            <strong>@Html.Encode(User.Identity.Name)</strong>
+            @Html.ActionLink("Log out", "Logout", "Registration")
+        }
+        else
+        {
+            @Html.ActionLink("Register", "Signup", "Registration")
+            <span> </span>
+            @Html.ActionLink("Log in", "Login", "Registration")
+        }
+        @RenderBody()
+    </div>
+
+</body>
+</html>

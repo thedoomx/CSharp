@@ -19,5 +19,11 @@ namespace EmpEditor.Models
         [StringLength(10, MinimumLength = 6)]
         [Display(Name ="Password: ")]
         public string Password { get; set; }
+
+        [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
+        [StringLength(10, MinimumLength = 6)]
+        [Display(Name = "Password: ")]
+        public string RepeatPassword { get; set; }
     }
 }

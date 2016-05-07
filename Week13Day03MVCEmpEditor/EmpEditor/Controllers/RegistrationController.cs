@@ -14,6 +14,10 @@ namespace EmpEditor.Controllers
 
         public ActionResult Index()
         {
+            if(Request.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Employee");
+            }
             return View();
         }
 
@@ -31,6 +35,11 @@ namespace EmpEditor.Controllers
             {
                 if(_repository.AddUser(user))
                 {
+                    if (user.Password != user.RepeatPassword)
+                    {
+                        ViewBag.Title = "Password doesn't match!";
+                        return View(user);
+                    }
                     return View("Information", user);
                 }
             }
@@ -55,6 +64,7 @@ namespace EmpEditor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(UserModel user)
         {
+            
             if (ModelState.IsValid)
             {
 

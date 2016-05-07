@@ -180,11 +180,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\TypeaheadBundleConfig.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
-    <Compile Include="Controllers\EmployeeRepository.cs" />
-    <Compile Include="Controllers\IEmployeeRepository.cs" />
-    <Compile Include="Controllers\IUserRepository.cs" />
+    <Compile Include="Controllers\App_LocalResources\EmployeeRepository.cs" />
+    <Compile Include="Controllers\App_LocalResources\IEmployeeRepository.cs" />
+    <Compile Include="Controllers\App_LocalResources\IUserRepository.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
-    <Compile Include="Controllers\UserRepository.cs" />
+    <Compile Include="Controllers\App_LocalResources\UserRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

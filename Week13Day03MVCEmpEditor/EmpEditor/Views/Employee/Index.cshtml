@@ -3,7 +3,9 @@
 @{
     Layout = null;
 }
-
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <!DOCTYPE html>
 
 <html>
@@ -16,10 +18,9 @@
 </head>
 <body>
     <div>
-        @Html.ActionLink("Log out", "Logout", "Registration")
         @Html.ActionLink("Create new employee", "Create", new { @class = "createNew" })
         @Html.ActionLink("Go to AJAX search", "Search")
-        @Html.ActionLink("Go to JQuery autocomplete", "AutoComplete")
+        @Html.ActionLink("Go to JQuery autocomplete", "AutoComplete") 
     </div>
     <div>
         <fieldset>
